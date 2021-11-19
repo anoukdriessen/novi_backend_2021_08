@@ -1,6 +1,8 @@
 package casino;
 import casino.games.HigherLowerGame;
 import casino.games.BlackJackGame;
+import casino.games.blackjack.LowDeckBlackJack;
+import casino.games.blackjack.SimpleBlackJack;
 
 import java.util.Scanner;
 
@@ -20,9 +22,22 @@ public class Main {
 //        }
 
         // spel 2. Blackjack
-        System.out.println("Spel 2 Blackjack");
+//        System.out.println("Spel 2 Blackjack");
+//        try {
+//            playBlackJack(in);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        // spel 3. Twee versies van blackjack
+        System.out.println("Spel 3 versie 1 Simpel Blackjack");
         try {
-            playBlackJack(in);
+            playSimpleBlackJack(in);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            playLowDeckBlackJack(in);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -46,6 +61,27 @@ public class Main {
      */
     public static void playBlackJack(Scanner in) throws InterruptedException {
         BlackJackGame bj = new BlackJackGame(in);
+        fn.countdown(3);
+        bj.start();
+    }
+
+    /**
+     * Method to play SimpleBlackJack
+     * @param in de input die gebruikt moet worden
+     * @throws InterruptedException vanuit Thread.sleep()
+     */
+    public static void playSimpleBlackJack(Scanner in) throws InterruptedException {
+        SimpleBlackJack bj = new SimpleBlackJack(in);
+        fn.countdown(3);
+        bj.start();
+    }
+    /**
+     * Method to play SimpleBlackJack
+     * @param in de input die gebruikt moet worden
+     * @throws InterruptedException vanuit Thread.sleep()
+     */
+    public static void playLowDeckBlackJack(Scanner in) throws InterruptedException {
+        LowDeckBlackJack bj = new LowDeckBlackJack(in);
         fn.countdown(3);
         bj.start();
     }
